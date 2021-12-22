@@ -31,6 +31,17 @@ describe('api', () => {
         should.exist(user)
         user.id.should.equal(globalAuth.user)
       })
+
+      it('user id must match user in URL to be successful', async () => {
+        const user = await agent
+          .client()
+          .put(`/user/${globalAuth.user}`)
+          .set('authorization', globalAuth.token)
+          .expect(200)
+          .promise()
+        should.exist(user)
+        user.id.should.equal(globalAuth.user)
+      })
     })
   })
 })
