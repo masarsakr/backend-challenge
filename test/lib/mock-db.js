@@ -17,7 +17,7 @@ class MockDB {
   }
 
   async connect() {
-    await mongodb.createConnection()
+    await mongodb.connect()
   }
 }
 
