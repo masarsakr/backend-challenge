@@ -11,6 +11,14 @@ class MockDB {
     await db.dropDatabase()
     await client.close()
   }
+
+  async disconnect() {
+    await mongodb.disconnect()
+  }
+
+  async connect() {
+    await mongodb.connect()
+  }
 }
 
 module.exports = new MockDB()
